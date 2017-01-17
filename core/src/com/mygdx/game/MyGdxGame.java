@@ -8,11 +8,13 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class MyGdxGame extends ApplicationAdapter {
 	SpriteBatch batch;
 	Background background;
+	Ship ship;
 
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
 		background = new Background();
+		ship = new Ship();
 	}
 
 	@Override
@@ -22,11 +24,13 @@ public class MyGdxGame extends ApplicationAdapter {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
 		background.render(batch);
+		ship.render(batch);
 		batch.end();
 	}
 
 	public void update() {
 		background.update();
+		ship.update();
 	}
 	
 	@Override
