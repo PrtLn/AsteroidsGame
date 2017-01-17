@@ -26,7 +26,7 @@ public class MyGdxGame extends ApplicationAdapter {
 	}
 
 	public void update() {
-		
+		background.update();
 	}
 	
 	@Override
