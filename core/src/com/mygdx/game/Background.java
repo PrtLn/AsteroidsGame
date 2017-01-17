@@ -25,12 +25,23 @@ public class Background {
     }
 
     private Texture texture;
+    private Texture textureStar;
+    private Star[] stars;
+    private final int STARS_COUNT = 200;
 
     public Background() {
         texture = new Texture("backspace.png");
+        textureStar = new Texture("star.png");
+        stars = new Star[STARS_COUNT];
+        for (int i = 0; i < stars.length; i++) {
+            stars[i] = new Star();
+        }
     }
 
     public void render(SpriteBatch batch) {
         batch.draw(texture, 0, 0);
+        for (int i = 0; i < stars.length; i++) {
+            batch.draw(textureStar, stars[i].position.x, stars[i].position.y);
+        }
     }
 }
