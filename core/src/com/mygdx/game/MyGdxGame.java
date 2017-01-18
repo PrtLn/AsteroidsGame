@@ -3,14 +3,18 @@ package com.mygdx.game;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class MyGdxGame extends ApplicationAdapter {
-	SpriteBatch batch;
-	Background background;
-	Ship ship;
-	Asteroid[] asteroids;
-	final int ASTEROIDS_COUNT = 30;
+	private SpriteBatch batch;
+	private Background background;
+	private Ship ship;
+	private Asteroid[] asteroids;
+	private final int ASTEROIDS_COUNT = 30;
+	public static Bullet[] bullets;
+	private final int BULLETS_COUNT = 100;
+	private Texture textureBullet;
 
 	@Override
 	public void create () {
@@ -21,6 +25,11 @@ public class MyGdxGame extends ApplicationAdapter {
 		for (int i = 0; i < asteroids.length; i++) {
 			asteroids[i] = new Asteroid();
 		}
+		bullets = new Bullet[BULLETS_COUNT];
+		for (int i = 0; i < bullets.length; i++) {
+			bullets[i] = new Bullet();
+		}
+		textureBullet = new Texture("bullet.png");
 	}
 
 	@Override
@@ -31,6 +40,12 @@ public class MyGdxGame extends ApplicationAdapter {
 		batch.begin();
 		background.render(batch);
 		ship.render(batch);
+		for (int i = 0; i < bullets.length; i++) {
+			if (bullets[i].isActive())
+				batch.draw(textureBullet,
+						bullets[i].getPosition().x + 140f,
+						bullets[i].getPosition().y + 40f);
+		}
 		for (int i = 0; i < asteroids.length; i++) {
 			asteroids[i].render(batch);
 		}
@@ -42,6 +57,10 @@ public class MyGdxGame extends ApplicationAdapter {
 		ship.update();
 		for (int i = 0; i < asteroids.length; i++) {
 			asteroids[i].update();
+		}
+		for (int i = 0; i < bullets.length; i++) {
+			if (bullets[i].isActive())
+				bullets[i].update();
 		}
 	}
 	

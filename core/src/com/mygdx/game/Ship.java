@@ -10,12 +10,15 @@ public class Ship {
     private Vector2 position;
     private Texture texture;
     private float speed;
-    private float angle;
+    private int fireRate;
+    private int fireCounter;
 
     public Ship() {
         position = new Vector2(100, 100);
         texture = new Texture("ship.png");
         speed = 5.0f;
+        fireRate = 5;
+        fireCounter = 0;
     }
 
     public void render(SpriteBatch batch) {
@@ -45,6 +48,22 @@ public class Ship {
             position.x += speed;
             if (position.x > 1120) {
                 position.x = 1120;
+            }
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.W)) {
+            fireCounter++;
+            if (fireCounter > fireRate) {
+                fireCounter = 0;
+                fire();
+            }
+        }
+    }
+
+    public void fire() {
+        for (int i = 0; i < MyGdxGame.bullets.length; i++) {
+            if (!MyGdxGame.bullets[i].isActive()) {
+                MyGdxGame.bullets[i].setup(position.x, position.y);
+                break;
             }
         }
     }

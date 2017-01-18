@@ -12,7 +12,7 @@ public class Asteroid {
     public Asteroid() {
         position = new Vector2(1280 + (float)Math.random() * 1280,
                 (float)Math.random() * 720);
-        speed = 35.0f + (float)Math.random() * 7.0f;
+        speed = 3.0f + (float)Math.random() * 7.0f;
         if (texture == null)
             texture = new Texture("asteroid.png");
     }
@@ -33,5 +33,4 @@ public class Asteroid {
             recreate();
         }
     }
-
 }

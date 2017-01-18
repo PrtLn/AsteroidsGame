@@ -11,7 +11,11 @@ public class Bullet {
         return active;
     }
 
-    public void setup(int x, int y) {
+    public Vector2 getPosition() {
+        return position;
+    }
+
+    public void setup(float x, float y) {
         position.x = x;
         position.y = y;
         active = true;
@@ -19,7 +23,7 @@ public class Bullet {
 
     public Bullet() {
         position = new Vector2(0f, 0f);
-        speed = 7.0f;
+        speed = 12.0f;
         active = false;
     }
 
