@@ -34,7 +34,17 @@ public class Ship {
                 position.y = 840;
             }
         }
-
-
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
+            position.x -= speed;
+            if (position.x < 0) {
+                position.x = 0;
+            }
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
+            position.x += speed;
+            if (position.x > 1120) {
+                position.x = 1120;
+            }
+        }
     }
 }
