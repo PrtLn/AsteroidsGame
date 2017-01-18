@@ -1,5 +1,7 @@
 package com.mygdx.game;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
@@ -12,7 +14,7 @@ public class Ship {
     public Ship() {
         position = new Vector2(100, 100);
         texture = new Texture("ship.png");
-        speed = 12.0f;
+        speed = 10.0f;
     }
 
     public void render(SpriteBatch batch) {
@@ -20,6 +22,12 @@ public class Ship {
     }
 
     public void update() {
+        if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
+            position.y += speed;
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
+            position.y -= speed;
+        }
 
     }
 }
