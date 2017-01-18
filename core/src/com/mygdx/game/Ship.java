@@ -24,10 +24,17 @@ public class Ship {
     public void update() {
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
             position.y += speed;
+            if (position.y > 720) {
+                position.y = -120;
+            }
         }
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
             position.y -= speed;
+            if (position.y < 0) {
+                position.y = 840;
+            }
         }
+
 
     }
 }
