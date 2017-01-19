@@ -4,6 +4,10 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
+/**
+ * Created by Pikalova Lena on 1/17/2017.
+ */
+
 public class Background {
     class Star {
         private Vector2 position; // position.x and position.y

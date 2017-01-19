@@ -2,6 +2,10 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.math.Vector2;
 
+/**
+ * Created by Pikalova Lena on 1/18/2017.
+ */
+
 public class Bullet {
     private Vector2 position;
     private float speed;

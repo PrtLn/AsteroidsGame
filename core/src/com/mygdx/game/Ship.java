@@ -6,6 +6,10 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
+/**
+ * Created by Pikalova Lena on 1/17/2017.
+ */
+
 public class Ship {
     private Vector2 position;
     private Texture texture;
@@ -16,8 +20,8 @@ public class Ship {
     public Ship() {
         position = new Vector2(100, 100);
         texture = new Texture("ship.png");
-        speed = 5.0f;
-        fireRate = 5;
+        speed = 3.0f;
+        fireRate = 7;
         fireCounter = 0;
     }
 

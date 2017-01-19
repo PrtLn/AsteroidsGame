@@ -6,6 +6,10 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+/**
+ * Created by Pikalova Lena on 1/17/2017.
+ */
+
 public class MyGdxGame extends ApplicationAdapter {
 	private SpriteBatch batch;
 	private Background background;
@@ -61,6 +65,13 @@ public class MyGdxGame extends ApplicationAdapter {
 		for (int i = 0; i < bullets.length; i++) {
 			if (bullets[i].isActive())
 				bullets[i].update();
+			for (int j = 0; j < asteroids.length; j++) {
+				if (asteroids[j].getRect().contains(bullets[i].getPosition())) {
+					asteroids[j].recreate();
+					bullets[i].destroy();
+					break;
+				}
+			}
 		}
 	}
 	
